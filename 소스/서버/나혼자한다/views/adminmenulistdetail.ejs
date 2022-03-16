@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+        <section id="main-content">
+          <section class="wrapper">
+            <div class="row">
+              <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa-table"></i>메뉴관리</h3>
+                <ol class="breadcrumb">
+                  <li><i class="fa fa-home"></i><a href="index.html">홈</a></li>
+                  <li><i class="fa fa-table"></i>메뉴관리</li>
+                  <li><i class="fa fa-th-list"></i>메뉴리스트보기</li>
+                  <li><i class="fa fa-th-list"></i>메뉴상세정보</li>
+                </ol>
+              </div>
+            </div>
+            <!-- page start-->
+            <div class="row">
+              <div class="col-lg-12">
+                <section class="panel">
+                  <header class="panel-heading">
+                    메뉴상세정보
+                  </header>
+                  <% var item = menudata[0]; %>
+          <table class="table table-striped" style="text-align:center">
+            <thead>
+              <p style="text-align:center">
+                <img class="img-fluid" src=<%=item.image %>>
+              </p>
+            </thead>
+            <tbody>
+              <tr>
+               <td >메뉴이름 : <%=item.menuname%></td>
+              </tr>
+              <tr>
+               <td>난이도 : <%=item.difficulty%></td>
+              </tr>
+              <tr>
+               <td>카테고리 : <%=item.category%></td>
+              </tr>
+            </tbody>
+            </table>
+                </section>
+              </div>
+            </div>
+          </section>
+        </section>
+<!-- javascripts -->
+<script src="../../js/jquery.js"></script>
+<script src="../../js/jquery-ui-1.10.4.min.js"></script>
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../js/jquery-ui-1.9.2.custom.min.js"></script>
+<!-- bootstrap -->
+<script src="../../js/bootstrap.min.js"></script>
+<!-- nice scroll -->
+<script src="../../js/jquery.scrollTo.min.js"></script>
+<script src="../../js/jquery.nicescroll.js" type="text/javascript"></script>
+
+  <!--custome script for all page-->
+  <script src="../../js/scripts.js"></script>
+  <!-- custom script for this page-->
+  <script src="../../js/sparkline-chart.js"></script>
+  <script src="../../js/easy-pie-chart.js"></script>
+  <script src="../../js/jquery-jvectormap-1.2.2.min.js"></script>
+  <script src="../../js/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="../../js/xcharts.min.js"></script>
+  <script src="../../js/jquery.autosize.min.js"></script>
+  <script src="../../js/jquery.placeholder.min.js"></script>
+  <script src="../../js/gdp-data.js"></script>
+  <script src="../../js/morris.min.js"></script>
+  <script src="../../js/sparklines.js"></script>
+  <script src="../../js/charts.js"></script>
+  <script src="../../js/jquery.slimscroll.min.js"></script>
+  <script>
+    //knob
+    $(function() {
+      $(".knob").knob({
+        'draw': function() {
+          $(this.i).val(this.cv + '%')
+        }
+      })
+    });
+
+    //carousel
+    $(document).ready(function() {
+      $("#owl-slider").owlCarousel({
+        navigation: true,
+        slideSpeed: 300,
+        paginationSpeed: 400,
+        singleItem: true
+
+      });
+    });
+
+    //custom select box
+
+    $(function() {
+      $('select.styled').customSelect();
+    });
+
+    /* ---------- Map ---------- */
+    $(function() {
+      $('#map').vectorMap({
+        map: 'world_mill_en',
+        series: {
+          regions: [{
+            values: gdpData,
+            scale: ['#000', '#000'],
+            normalizeFunction: 'polynomial'
+          }]
+        },
+        backgroundColor: '#eef3f7',
+        onLabelShow: function(e, el, code) {
+          el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+        }
+      });
+    });
+  </script>

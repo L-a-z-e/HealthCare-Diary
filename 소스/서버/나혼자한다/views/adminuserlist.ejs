@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+     <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-table"></i>회원관리</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="/">홈</a></li>
+              <li><i class="fa fa-table"></i>회원관리</li>
+              <li><i class="fa fa-th-list"></i>회원리스트보기</li>
+            </ol>
+          </div>
+        </div>
+        <!-- page start-->
+        <div class="container w-50">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                회원목록
+              </header>
+              <div>
+                  <form style=float:right action = '/adminuser/search' method=get>
+                      <input type="text" placeholder="아이디로검색" name="userid">
+                      <button type="submit" class="btn btn-primary">검색</button>
+                  </form>
+               </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>번호</th>
+                    <th>아이디</th>
+                    <th>비밀번호</th>
+                    <th>이메일</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% if(leng == 0){ %>
+                        <tr>
+                          <td colspan= "4"> 회원정보가 없습니다. </td>
+                        </tr>
+                    <% }else if(leng == 1){ %>
+                        <% var item = userdata[0]; %>
+                        <tr>
+                            <td> 1 </td>
+                            <td> <%=item.userid%></td>   
+                            <td> <%=item.password%> </td>
+                            <td> <%=item.email%> </td>
+                        </tr>
+                    <% }else{ %>
+                        <% for(var i=page_num*(page - 1); i<page*page_num; i++){ %>
+                             <% if(i == leng){ %>
+                               <% break; %>
+                             <% }else{ %>
+                                    <% var item = userdata[i]; %>
+                                    <tr>
+                                        <td> <%=i+1%></td>  
+                                        <td> <%=item.userid%></td>   
+                                        <td> <%=item.password%> </td>
+                                        <td> <%=item.email%> </td>
+                                    </tr>
+                             <% } %>
+                        <% } %>
+                    <% } %>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </section>
+    </section>
+<p></p>
+<nav class="text-center" aria-label="...">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <% for(var i = 0; i < userdata.length/page_num; i++) { %>
+      <% if(page == i + 1){ %>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="/adminuser/list/<%=i+1%>"><%=i+1%> <span class="sr-only">(current)</span></a>
+        </li>
+      <% }else{ %>
+        <li class="page-item" aria-current="page">
+            <a class="page-link" href="/adminuser/list/<%=i+1%>"><%=i+1%> <span class="sr-only">(current)</span></a>
+        </li>
+      <% } %>
+    <% } %>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+<!-- javascripts -->
+<script src="../../js/jquery.js"></script>
+<script src="../../js/jquery-ui-1.10.4.min.js"></script>
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../js/jquery-ui-1.9.2.custom.min.js"></script>
+<!-- bootstrap -->
+<script src="../../js/bootstrap.min.js"></script>
+<!-- nice scroll -->
+<script src="../../js/jquery.scrollTo.min.js"></script>
+<script src="../../js/jquery.nicescroll.js" type="text/javascript"></script>
+
+  <!--custome script for all page-->
+  <script src="../../js/scripts.js"></script>
+  <!-- custom script for this page-->
+  <script src="../../js/sparkline-chart.js"></script>
+  <script src="../../js/easy-pie-chart.js"></script>
+  <script src="../../js/jquery-jvectormap-1.2.2.min.js"></script>
+  <script src="../../js/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="../../js/xcharts.min.js"></script>
+  <script src="../../js/jquery.autosize.min.js"></script>
+  <script src="../../js/jquery.placeholder.min.js"></script>
+  <script src="../../js/gdp-data.js"></script>
+  <script src="../../js/morris.min.js"></script>
+  <script src="../../js/sparklines.js"></script>
+  <script src="../../js/charts.js"></script>
+  <script src="../../js/jquery.slimscroll.min.js"></script>
+  <script>
+    //knob
+    $(function() {
+      $(".knob").knob({
+        'draw': function() {
+          $(this.i).val(this.cv + '%')
+        }
+      })
+    });
+
+    //carousel
+    $(document).ready(function() {
+      $("#owl-slider").owlCarousel({
+        navigation: true,
+        slideSpeed: 300,
+        paginationSpeed: 400,
+        singleItem: true
+
+      });
+    });
+
+    //custom select box
+
+    $(function() {
+      $('select.styled').customSelect();
+    });
+
+    /* ---------- Map ---------- */
+    $(function() {
+      $('#map').vectorMap({
+        map: 'world_mill_en',
+        series: {
+          regions: [{
+            values: gdpData,
+            scale: ['#000', '#000'],
+            normalizeFunction: 'polynomial'
+          }]
+        },
+        backgroundColor: '#eef3f7',
+        onLabelShow: function(e, el, code) {
+          el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+        }
+      });
+    });
+  </script>

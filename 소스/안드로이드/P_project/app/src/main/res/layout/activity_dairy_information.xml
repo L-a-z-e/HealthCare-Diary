@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DiaryInformationActivity"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#ffffff">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="50dp"
+    android:id="@+id/date"
+    android:textStyle="bold"
+    android:text="선택한 날짜"
+    />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+    <Button
+
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:id="@+id/gallery"
+        android:background="@drawable/ic_folder_black_24dp"/>
+    <TextView
+        android:layout_below="@+id/gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="운동 사진"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="40dp"
+        />
+
+            <ImageView
+                android:id="@+id/body_img"
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="80dp"
+                android:background="@drawable/back"
+
+                android:padding="1dp"
+                android:scaleType="fitXY" />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:text="신체 사진"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="80dp"
+                android:layout_below="@+id/body_img"/>
+            <Button
+                android:id="@+id/body_btn"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:text="등록"
+                android:textSize="8dp"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="90dp"/>
+        </RelativeLayout>
+    <TextView
+        android:id="@+id/exercise_time"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="총 운동시간(분) : "
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        />
+    <TextView
+        android:id="@+id/exercise_kcal"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="총 소모 칼로리(kcal) : "
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        />
+    <TextView
+        android:id="@+id/exercise_expl"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="운동 내용\n\n"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        />
+    </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/cardview_light_background"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+
+            />
+    </FrameLayout>
+</LinearLayout>

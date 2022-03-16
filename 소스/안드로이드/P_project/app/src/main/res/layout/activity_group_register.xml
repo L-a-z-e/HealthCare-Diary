@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LoginActivity"
+    >
+
+    <RelativeLayout android:layout_height="match_parent" android:layout_width="match_parent" android:background="#FFFFFF">
+
+        <ImageView android:layout_height="300dp" android:layout_width="300dp" app:srcCompat="@drawable/logo"
+            android:id="@+id/image1" android:layout_centerHorizontal="true"/>
+
+        <EditText android:layout_height="60dp" android:layout_width="300dp" android:background="@drawable/round"
+            android:id="@+id/group_name" android:layout_centerHorizontal="true" android:layout_marginTop="50dp"
+            android:hint=" Group Name" android:layout_below="@+id/image1"/>
+
+        <EditText android:layout_height="60dp" android:layout_width="300dp" android:background="@drawable/round"
+            android:id="@+id/group_passwd" android:layout_centerHorizontal="true" android:layout_marginTop="10dp"
+            android:hint=" Password" android:password="true" android:layout_below="@+id/group_name"/>
+
+        <Button android:layout_height="wrap_content" android:layout_width="wrap_content"
+            android:background="@drawable/round" android:id="@+id/group_register"
+            android:text="등록"
+            android:layout_centerHorizontal="true" android:layout_marginTop="20dp"
+            android:layout_below="@id/group_passwd" android:textSize="15sp" android:layout_marginLeft="50dp"/>
+
+
+        <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_centerHorizontal="true" android:layout_marginTop="50dp" android:layout_below="@+id/group_register" android:orientation="horizontal">
+
+            <Button android:layout_height="wrap_content" android:layout_width="150dp"
+                android:background="@drawable/back" android:id="@+id/group_make" android:textSize="15sp" android:text="나만의 그룹 생성"/>
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

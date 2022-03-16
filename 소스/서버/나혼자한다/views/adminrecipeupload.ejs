@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<script language="javascript">
+  function validate() {
+     alert("레시피가 등록되었습니다.");
+     return true;
+  }
+
+  $(document).ready(function() {
+    bsCustomFileInput.init();
+  })
+</script>
+    <section id="main-content">
+        <section class="wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <h3 class="page-header"><i class="fa fa-files-o"></i> 레시피관리</h3>
+              <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="/">홈</a></li>
+                <li><i class="icon_document_alt"></i>레시피관리</li>
+                <li><i class="fa fa-files-o"></i>레시피리스트보기</li>
+                <li><i class="fa fa-files-o"></i>레시피상세정보</li>
+                <li><i class="fa fa-files-o"></i>레시피등록</li>
+              </ol>
+            </div>
+          </div>
+          <!-- Form validations -->
+          <div class="container w-50" >
+            <div class="col-lg-12">
+              <section class="panel">
+                <header class="panel-heading">
+                  레시피등록
+                </header>
+                <div class="panel-body">
+                  <div class="form">
+                      <form name=join onsubmit="return validate()" method=post action="/adminrecipe/upload" enctype="multipart/form-data"> 
+                        <% var menuname = menuname; %>
+                        <% var recipenum = recipenum; %>
+                        <% var menunum = menunum; %>
+                        <input type='hidden' name='menunum' value=<%=menunum %>> 
+                          <div class="form-group col-md-12">
+                           <label for="exampleFormControlSelect1">메뉴이름</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name=category>
+                              <option><%=menuname %></option>
+                            </select>
+                         </div>
+                        <div class="form-group col-md-12">
+                          <label for="exampleInputPassword1">재료</label>
+                          <input type="text" class="form-control" name="meterial" id="meterial" placeholder="재료를 입력하세요.">
+                          ,(콤마) 로 구분지어 입력, 예) 당근,김치,쌀...
+                        </div>
+                         <% for(var i = 1; i <= recipenum; i++) { %>
+                          <div class="form-group col-md-12">
+                            <label for="exampleInputEmail1">조리순서<%=i %></label>
+                            <input type="text" class="form-control" name="recipeorder" id="recipeorder" aria-describedby="emailHelp" placeholder="조리방법입력">
+                          </div>
+                          <div class="form-group col-md-12">
+                              <label for="exampleInputEmail1">조리순서<%=i %> 이미지 (적정사이즈:250x180)</label>
+                            <input type="file" class="custom-file-input2" id="entry" width=10px aria-describedby="entry2" accept="image/*" name="photo" multiple>
+                          </div>
+                         <% } %>
+                           <hr>
+                           <button style="float:right" type="submit" class="btn btn-primary">레시피등록</button>
+                        </form>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+      </section>
+      <!-- javascripts -->
+      <script src="../../js/jquery.js"></script>
+      <script src="../../js/jquery-ui-1.10.4.min.js"></script>
+      <script src="../../js/jquery-1.8.3.min.js"></script>
+      <script type="text/javascript" src="../../js/jquery-ui-1.9.2.custom.min.js"></script>
+      <!-- bootstrap -->
+      <script src="../../js/bootstrap.min.js"></script>
+      <!-- nice scroll -->
+      <script src="../../js/jquery.scrollTo.min.js"></script>
+      <script src="../../js/jquery.nicescroll.js" type="text/javascript"></script>
+      
+        <!--custome script for all page-->
+        <script src="../../js/scripts.js"></script>
+        <!-- custom script for this page-->
+        <script src="../../js/sparkline-chart.js"></script>
+        <script src="../../js/easy-pie-chart.js"></script>
+        <script src="../../js/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="../../js/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="../../js/xcharts.min.js"></script>
+        <script src="../../js/jquery.autosize.min.js"></script>
+        <script src="../../js/jquery.placeholder.min.js"></script>
+        <script src="../../js/gdp-data.js"></script>
+        <script src="../../js/morris.min.js"></script>
+        <script src="../../js/sparklines.js"></script>
+        <script src="../../js/charts.js"></script>
+        <script src="../../js/jquery.slimscroll.min.js"></script>
+        <script>
+          //knob
+          $(function() {
+            $(".knob").knob({
+              'draw': function() {
+                $(this.i).val(this.cv + '%')
+              }
+            })
+          });
+      
+          //carousel
+          $(document).ready(function() {
+            $("#owl-slider").owlCarousel({
+              navigation: true,
+              slideSpeed: 300,
+              paginationSpeed: 400,
+              singleItem: true
+      
+            });
+          });
+      
+          //custom select box
+      
+          $(function() {
+            $('select.styled').customSelect();
+          });
+      
+          /* ---------- Map ---------- */
+          $(function() {
+            $('#map').vectorMap({
+              map: 'world_mill_en',
+              series: {
+                regions: [{
+                  values: gdpData,
+                  scale: ['#000', '#000'],
+                  normalizeFunction: 'polynomial'
+                }]
+              },
+              backgroundColor: '#eef3f7',
+              onLabelShow: function(e, el, code) {
+                el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+              }
+            });
+          });
+        </script>
+      
+       <!-- Footer 영역 -->

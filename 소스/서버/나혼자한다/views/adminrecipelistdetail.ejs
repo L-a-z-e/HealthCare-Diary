@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+      <section id="main-content">
+          <section class="wrapper">
+            <div class="row">
+              <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa-table"></i>레시피관리</h3>
+                <ol class="breadcrumb">
+                  <li><i class="fa fa-home"></i><a href="/">홈</a></li>
+                  <li><i class="fa fa-table"></i>레시피관리</li>
+                  <li><i class="fa fa-th-list"></i>레시피리스트보기</li>
+                  <li><i class="fa fa-th-list"></i>레시피상세정보</li>
+                </ol>
+              </div>
+            </div>
+            <!-- page start-->
+            <div class="row">
+              <div class="col-lg-12">
+                <section class="panel">
+                  <header class="panel-heading">
+                    레시피상세정보
+                  </header>
+                  <% var item = recipedata[0]; %>
+          <% var recipenum = recipenum; %>
+          <% var image = image; %>
+          <% var menuname = menuname; %>
+          <% var menunum = menunum; %>
+          <% var meterial = meterial; %>
+          <table class="table table-striped" style="text-align:center">
+            <thead>
+              <p style="text-align:center">
+                <img class="img-fluid" src=<%=image %>>
+              </p>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2">메뉴이름 : <%=menuname%></td>
+              </tr>             
+              <tr>
+                <td colspan="2">조리순서</td>
+              </tr>
+              <% if(leng == 0) { %>
+                <tr>
+                  <td>등록된 레시피가 없습니다.</td>
+                </tr>
+              <% }else{ %>
+                <% if(item.recipeorder1 != null){ %>
+                  <tr>
+                    <td colspan="2">재료 : <%=item.meterial%></td>
+                  </tr>
+                  <tr>
+                    <td><%=item.recipeorder1 %></td>
+                    <td><img height="135px" width="196px" class="img-fluid" src=<%=item.orderimage1 %>></td>
+                  </tr>
+                <% } %>
+                <% if(item.recipeorder2 != null){ %>
+                  <tr>
+                    <td><%=item.recipeorder2 %></td>
+                    <td><img height="135px" width="196px" class="img-fluid" src=<%=item.orderimage2 %>></td>
+                  </tr>
+                <% } %>
+                <% if(item.recipeorder3 != null){ %>
+                  <tr>
+                    <td><%=item.recipeorder3 %></td>
+                    <td><img height="135px" width="196px" class="img-fluid" src=<%=item.orderimage3 %>></td>
+                  </tr>
+                <% } %>
+                <% if(item.recipeorder4 != null){ %>
+                  <tr>
+                    <td><%=item.recipeorder4 %></td>
+                    <td><img height="135px" width="196px" class="img-fluid" src=<%=item.orderimage4 %>></td>
+                  </tr>
+                <% } %>
+                <% if(item.recipeorder5 != null){ %>
+                  <tr>
+                    <td><%=item.recipeorder5 %></td>
+                    <td><img height="135px" width="196px" class="img-fluid" src=<%=item.orderimage5 %>></td>
+                  </tr>
+                <% } %>
+                <% if(item.recipeorder6 != null){ %>
+                  <tr>
+                    <td><%=item.recipeorder6 %></td>
+                    <td><img height="135px" width="196px" class="img-fluid" src=<%=item.orderimage6 %>></td>
+                  </tr>
+                <% } %>
+                <% if(item.recipeorder7 != null){ %>
+                  <tr>
+                    <td><%=item.recipeorder7 %></td>
+                    <td><img height="135px" width="196px" class="img-fluid" src=<%=item.orderimage7 %>></td>
+                  </tr>
+                <% } %>
+                <% if(item.recipeorder8 != null){ %>
+                  <tr>
+                    <td><%=item.recipeorder8 %></td>
+                    <td><img height="135px" width="196px" class="img-fluid" src=<%=item.orderimage8 %>></td>
+                  </tr>
+                <% } %>
+                <% if(item.recipeorder9 != null){ %>
+                  <tr>
+                    <td><%=item.recipeorder9 %></td>
+                    <td><img height="135px" width="196px" class="img-fluid" src=<%=item.orderimage9 %>></td>
+                  </tr>
+                <% } %>
+                <% if(item.recipeorder10 != null){ %>
+                  <tr>
+                    <td><%=item.recipeorder10 %></td>
+                    <td><img height="135px" width="196px" class="img-fluid" src=<%=item.orderimage10 %>></td>
+                  </tr>
+                <% } %>                
+              <% } %>
+            </tbody>
+            </table>
+          <% if(leng == 0) { %>
+            <form method=get action="/adminrecipe/upload">
+              <input type='hidden' name='recipenum' value=<%=recipenum %>> 
+              <input type='hidden' name='menuname' value=<%=menuname %>>
+              <input type='hidden' name='menunum' value=<%=menunum %>>
+              <button style="float:right" type="submit" class="btn btn-primary">레시피등록</button>
+            </form>
+          <% }else { %>
+            <form method=get action="/adminrecipe/update">
+              <input type='hidden' name='recipenum' value=<%=recipenum %>> 
+              <input type='hidden' name='menunum' value=<%=menunum %>>
+              <input type='hidden' name='menuname' value=<%=menuname %>>
+              <button style="float:right" type="submit" class="btn btn-primary">레시피수정</button>
+            </form>
+          <% } %>
+                </section>
+              </div>
+            </div>
+          </section>
+        </section>
+  <p>
+<!-- javascripts -->
+<script src="../../js/jquery.js"></script>
+<script src="../../js/jquery-ui-1.10.4.min.js"></script>
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../js/jquery-ui-1.9.2.custom.min.js"></script>
+<!-- bootstrap -->
+<script src="../../js/bootstrap.min.js"></script>
+<!-- nice scroll -->
+<script src="../../js/jquery.scrollTo.min.js"></script>
+<script src="../../js/jquery.nicescroll.js" type="text/javascript"></script>
+
+  <!--custome script for all page-->
+  <script src="../../js/scripts.js"></script>
+  <!-- custom script for this page-->
+  <script src="../../js/sparkline-chart.js"></script>
+  <script src="../../js/easy-pie-chart.js"></script>
+  <script src="../../js/jquery-jvectormap-1.2.2.min.js"></script>
+  <script src="../../js/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="../../js/xcharts.min.js"></script>
+  <script src="../../js/jquery.autosize.min.js"></script>
+  <script src="../../js/jquery.placeholder.min.js"></script>
+  <script src="../../js/gdp-data.js"></script>
+  <script src="../../js/morris.min.js"></script>
+  <script src="../../js/sparklines.js"></script>
+  <script src="../../js/charts.js"></script>
+  <script src="../../js/jquery.slimscroll.min.js"></script>
+  <script>
+    //knob
+    $(function() {
+      $(".knob").knob({
+        'draw': function() {
+          $(this.i).val(this.cv + '%')
+        }
+      })
+    });
+
+    //carousel
+    $(document).ready(function() {
+      $("#owl-slider").owlCarousel({
+        navigation: true,
+        slideSpeed: 300,
+        paginationSpeed: 400,
+        singleItem: true
+
+      });
+    });
+
+    //custom select box
+
+    $(function() {
+      $('select.styled').customSelect();
+    });
+
+    /* ---------- Map ---------- */
+    $(function() {
+      $('#map').vectorMap({
+        map: 'world_mill_en',
+        series: {
+          regions: [{
+            values: gdpData,
+            scale: ['#000', '#000'],
+            normalizeFunction: 'polynomial'
+          }]
+        },
+        backgroundColor: '#eef3f7',
+        onLabelShow: function(e, el, code) {
+          el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+        }
+      });
+    });
+  </script>

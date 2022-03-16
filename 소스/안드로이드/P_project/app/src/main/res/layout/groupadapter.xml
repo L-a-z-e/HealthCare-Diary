@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@drawable/back2"
+
+    >
+
+
+
+
+        <TextView
+            android:id="@+id/group_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이름 : "
+            android:textColor="#212c4d"
+            android:typeface="serif"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+
+            android:textSize="20sp"
+            />
+    <TextView
+        android:id="@+id/group_kcal"
+        android:layout_below="@+id/group_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이번달 총 소모칼로리 : "
+        android:textColor="#212c4d"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:layout_below="@+id/group_kcal"
+        android:id="@+id/group_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이번달 총 운동시간: "
+        android:textColor="#212c4d"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        />
+
+
+
+
+
+
+    <Button
+        android:layout_alignParentBottom="true"
+       android:layout_alignParentRight="true"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+
+        android:background="@drawable/ic_insert_chart_black_24dp"
+        android:id="@+id/chart"
+        />
+</RelativeLayout>

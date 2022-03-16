@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30sp"
+    android:background="#FFFFFF"
+    android:id="@+id/actionbar_layout"
+    >
+<Button
+
+    android:layout_width="30sp"
+    android:layout_height="30sp"
+    android:id="@+id/home_btn"
+    android:background="@drawable/actionbarlogo"
+    android:layout_marginLeft="150dp"
+    android:layout_centerVertical="true"
+    ></Button>
+
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:text="나혼자 한다"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/home_btn"/>
+
+
+
+</RelativeLayout>

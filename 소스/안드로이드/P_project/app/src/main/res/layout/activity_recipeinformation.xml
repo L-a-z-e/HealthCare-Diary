@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.RecipeInformationActivity"
+    android:background="#FFFFFF">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/information_img"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/ic_launcher"
+
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:layout_marginTop="30sp"
+                    android:layout_below="@+id/information_img"
+                    android:id="@+id/information_name"
+                    android:layout_width="350dp"
+                    android:gravity="center"
+                    android:layout_height="40dp"
+                    android:text="음식이름"
+                    android:textColor="#2354ac"
+                    android:typeface="serif"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/back_recipe_detail"
+                    />
+
+                <TextView
+                    android:layout_marginTop="30sp"
+                    android:layout_below="@+id/information_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="음식재료"
+                    android:textColor="#212c4d"
+
+                    android:background="@drawable/back_recipe_detail"
+                    android:id="@+id/information_ingredient"
+                    android:textSize="20sp"
+
+                    />
+
+                <TextView
+                    android:layout_marginTop="30sp"
+                    android:layout_below="@+id/information_ingredient"
+                    android:id="@+id/information_step"
+                    android:layout_width="200dp"
+                    android:gravity="center"
+                    android:layout_height="40dp"
+                    android:text="조리과정"
+                    android:typeface="serif"
+                    android:textColor="#2354ac"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/back_recipe_detail"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:background="@drawable/back_recipe_detail"
+                    android:layout_below="@+id/information_step"
+                    android:layout_marginTop="30sp"
+                    android:id="@+id/informationlist"
+                    android:scrollbars="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+        <Button
+            android:layout_marginTop="5dp"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:background="@drawable/favoriteicon_click"
+            android:layout_gravity="top|right"
+            android:id="@+id/favorite_plus"
+            android:layout_marginRight="5dp"
+            />
+    </FrameLayout>
+</LinearLayout>
